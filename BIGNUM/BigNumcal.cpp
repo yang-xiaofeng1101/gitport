@@ -1,10 +1,6 @@
-#include <iostream>
-#include <cstdio>
-#include <string>
 #include<memory.h>
-#include<string.h>
 #include<algorithm>
-#include<vector>
+
 #include"BigNumcal.h"
 using namespace std;
 
@@ -244,7 +240,7 @@ largenum::largenum(int n)
 
 
 
-int main()
+/*int main()
 {
 	int flag = 0;
 	largenum x1, x2, x3;
@@ -259,10 +255,7 @@ int main()
 	else if ('*' == c)flag = 3;
 	else cout << "type false!\n";
 	switch (flag) {
-	/*case 1: {x3 = (x1 + x2); cout << x3 << endl; break; }
-	case 2: {x3 = (x1 - (x2)); cout << x3 << endl; break; }
-	case 3: {x3 = (x1 * (x2)); cout << x3 <<endl; break; }
-	default: cout << "error -1\n";*/
+	
 		case 1:{
 			if((x1.sign==0&&x2.sign==0)||(x1.sign==1&&x2.sign==1)){
 				x3 = (x1 + x2); 
@@ -286,5 +279,5 @@ int main()
 		case 3:{x3=(x1*x2);cout<<x3<<endl;break;}
 	}
 	cout << endl;
-	return 0;
-}
+	 return 0;
+}*/
