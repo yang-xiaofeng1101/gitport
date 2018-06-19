@@ -1,4 +1,4 @@
-//#include"BigNumcal.cpp"
+
 #include<string>
 #include<vector>
 #include<stdio.h>
@@ -15,7 +15,7 @@ class largenum {
     public:
         bool sign;
         largenum() { 
-            len = 1; //memset(a, 0, sizeof(a)); 
+            len = 1; 
             a.resize(500,0);
             sign=0;
         }
@@ -36,16 +36,4 @@ class largenum {
         
         ~largenum(){}
 };
-/*largenum:: largenum(const largenum &x);
-largenum::largenum(const string s1);
-largenum largenum:: operator+(const largenum & T);
-largenum largenum:: operator-(const largenum & x);
-bool largenum:: operator>(const largenum & x);
-bool largenum:: operator ==(const largenum &x);
-bool largenum:: operator <(const largenum &x);
-largenum largenum::operator*(const largenum & x);
-istream &operator>>(istream &is, largenum &x);
-ostream &operator<<(ostream& os, largenum& x);
-largenum & largenum::operator=(const largenum & n);
-largenum::largenum(int n);*/
 #endif

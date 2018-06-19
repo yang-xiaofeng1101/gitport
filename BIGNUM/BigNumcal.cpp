@@ -46,7 +46,7 @@ largenum largenum:: operator+(const largenum & T)
 			t.a[i] += T.a[i];
 			if (t.a[i] > 9999)
 			{
-				//if(i+1==)
+				
 				t.a[i + 1]++;
 				t.a[i] -= 10000;
 			}
@@ -150,8 +150,7 @@ istream &operator>>(istream &is, largenum &x)
 	else {
 		x.sign=0;
 	}
-	//cout<<"s="<<s<<endl;
-	//memset(x.a, 0, sizeof(x.a));
+	
 	x.a.resize(500,0);	
 	int alen, cnt = 0, slen, temp, i, k;
 	slen = s.size();
@@ -173,7 +172,7 @@ istream &operator>>(istream &is, largenum &x)
 ostream &operator<<(ostream& os, largenum& x)
 {
 	int i;
-	//while(x.a[x.len-1]==0)x.len--;
+	
 	if(x.sign==1){
 		cout<<'-';
 	}
@@ -205,47 +204,3 @@ largenum::largenum(int n)
 	}
 	a[len++] = n;
 }
-
-
-
-/*int main()
-{
-	int flag = 0;
-	largenum x1, x2, x3;
-	char c;
-	cout << "You can input a number,end with pressing \"enter\",and then input a kind of operations( + , - or * ),also end with enter;last input the other number, and then press \"Enter\" to coclulate them !" << endl;
-	cin >> x1>>c>>x2;
-	cout << endl << "x1=" << x1 << endl;
-	cout << "x2=" << x2 << endl;
-	cout << "x1" << c << "x2=";
-	if ('+' == c)flag = 1;
-	else if ('-' == c)flag = 2;
-	else if ('*' == c)flag = 3;
-	else cout << "type false!\n";
-	switch (flag) {
-	
-		case 1:{
-			if((x1.sign==0&&x2.sign==0)||(x1.sign==1&&x2.sign==1)){
-				x3 = (x1 + x2); 
-				cout << x3 << endl; 
-				break;
-			}
-			else if(x1.sign==0&&x2.sign==1){x3 = (x1 - (x2)); cout << x3 << endl; break; }
-			else if(x1.sign==1&&x2.sign==0){x3 = (x2 - (x1)); cout << x3 << endl; break; }
-		}
-		case 2:{
-			if(x1.sign==0&&x2.sign==0){
-				x3 = (x1 + x2); 
-				cout << x3 << endl; 
-				break;
-			}
-			else if(x1.sign==1&&x2.sign==1){x3=(x2-(x1));cout<<x3<<endl;break;}
-			else if(x1.sign==0&&x2.sign==1){x3 = (x1 + (x2)); cout << x3 << endl; break; }
-			else if(x1.sign==1&&x2.sign==0){x3 = (x1 + (x2)); cout << x3 << endl; break; }
-		
-		}
-		case 3:{x3=(x1*x2);cout<<x3<<endl;break;}
-	}
-	cout << endl;
-	 return 0;
-}*/
