@@ -123,6 +123,10 @@ largenum largenum::operator*(const largenum & x)
 {
 	largenum aim;
 	int i, j;
+	if((a[0]==0&&len==1)||(x.a[0]==0&&x.len==1)){
+		aim=largenum();
+		return aim;
+	}
 	if((sign==1&&x.sign==0)||(sign==0&&x.sign==1))aim.sign=1;
 	else aim.sign=0;
 	for (i = 0; i<len; i++) {

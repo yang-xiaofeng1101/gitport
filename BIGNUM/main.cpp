@@ -17,7 +17,7 @@ int main()
 	switch (flag) {
 		case 1:{
 			if((x1.sign==0&&x2.sign==0)||(x1.sign==1&&x2.sign==1)){
-				x3 = (x1 + x2); 
+				x3 = (x1 + x2);
 				cout << x3 << endl; 
 				break;
 			}
@@ -26,7 +26,7 @@ int main()
 		}
 		case 2:{
 			if(x1.sign==0&&x2.sign==0){
-				x3 = (x1 + x2); 
+				x3 = (x1- x2); 
 				cout << x3 << endl; 
 				break;
 			}
