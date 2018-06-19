@@ -5,9 +5,10 @@
 #include<string.h>
 #include<algorithm>
 #include<vector>
+#include"BigNumcal.h"
 using namespace std;
 
-class largenum {
+/*class largenum {
 
 private:
 	vector<int> a;
@@ -36,11 +37,8 @@ public:
 	bool operator<(const largenum &);
 	bool operator==(const largenum &);
 	
-	~largenum()
-	{
-		//cout << "xigouhanshu has been called!\n";
-	}
-};
+	~largenum(){}
+};*/
 largenum:: largenum(const largenum &x){
 	sign=x.sign;
 	len=x.len;
