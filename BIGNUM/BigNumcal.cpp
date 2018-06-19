@@ -161,6 +161,8 @@ largenum largenum::operator*(const largenum & x)
 {
 	largenum aim;
 	int i, j;
+	if((sign==1&&x.sign==0)||(sign==0&&x.sign==1))aim.sign=1;
+	else aim.sign=0;
 	for (i = 0; i<len; i++) {
 		for (j = 0; j<x.len; j++) {
 			aim.a[i + j] += a[i] * x.a[j];
