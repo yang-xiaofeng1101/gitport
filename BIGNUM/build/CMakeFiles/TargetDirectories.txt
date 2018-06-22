@@ -1,0 +1,3 @@
+/home/yxf/Cprogram/gitport/BIGNUM/build/CMakeFiles/rebuild_cache.dir
+/home/yxf/Cprogram/gitport/BIGNUM/build/CMakeFiles/edit_cache.dir
+/home/yxf/Cprogram/gitport/BIGNUM/build/CMakeFiles/main.dir
