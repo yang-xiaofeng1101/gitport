@@ -1,4 +1,3 @@
-
 #include<string>
 #include<vector>
 #include<stdio.h>
@@ -36,4 +35,5 @@ class largenum {
         
         ~largenum(){}
 };
+void calculate(largenum &x1,char c,largenum &x2 );
 #endif

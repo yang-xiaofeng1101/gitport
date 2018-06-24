@@ -180,10 +180,9 @@ ostream &operator<<(ostream& os, largenum& x)
 	if(x.sign==1){
 		cout<<'-';
 	}
-	cout << x.a[x.len - 1] << "  ";
+	cout << x.a[x.len - 1];
 	for (i = x.len - 2; i >= 0; i--) {
 		printf("%04d", x.a[i]);
-		cout << "   ";
 	}
 	return os;
 }
@@ -207,4 +206,39 @@ largenum::largenum(int n)
 		n /= 10000;
 	}
 	a[len++] = n;
+}
+void calculate(largenum &x1,char c,largenum &x2 ){
+	int flag = 0;
+	largenum x3;
+	cout << endl << "x1=" << x1 << endl;
+	cout << "x2=" << x2 << endl;
+	cout << "x1" << c << "x2=";
+	if ('+' == c)flag = 1;
+	else if ('-' == c)flag = 2;
+	else if ('*' == c)flag = 3;
+	else cout << "type false!\n";
+	switch (flag) {
+		case 1:{
+			if((x1.sign==0&&x2.sign==0)||(x1.sign==1&&x2.sign==1)){
+				x3 = (x1 + x2);
+				cout << x3 << endl; 
+				break;
+			}
+			else if(x1.sign==0&&x2.sign==1){x3 = (x1 - (x2)); cout << x3 << endl; break; }
+			else if(x1.sign==1&&x2.sign==0){x3 = (x2 - (x1)); cout << x3 << endl; break; }
+		}
+		case 2:{
+			if(x1.sign==0&&x2.sign==0){
+				x3 = (x1- x2); 
+				cout << x3 << endl; 
+				break;
+			}
+			else if(x1.sign==1&&x2.sign==1){x3=(x2-(x1));cout<<x3<<endl;break;}
+			else if(x1.sign==0&&x2.sign==1){x3 = (x1 + (x2)); cout << x3 << endl; break; }
+			else if(x1.sign==1&&x2.sign==0){x3 = (x1 + (x2)); cout << x3 << endl; break; }
+		
+		}
+		case 3:{x3 = x1 * x2; cout<<x3<<endl; break;}
+	}
+	cout << endl;
 }
