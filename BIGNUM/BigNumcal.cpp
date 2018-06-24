@@ -3,6 +3,16 @@
 #include"BigNumcal.h"
 using namespace std;
 
+largenum::largenum(int n)
+{
+	int len = 0;
+	a.resize(500,0);
+	while (n >= 10000) {
+		a[len++] = n % 10000;
+		n /= 10000;
+	}
+	a[len++] = n;
+}
 largenum:: largenum(const largenum &x){
 	sign=x.sign;
 	len=x.len;
@@ -66,10 +76,14 @@ largenum largenum:: operator-(const largenum & x)
 			t1 = *this;
 			t2 = x;
 		}
+		else if(*this==x){
+			t1 = *this;
+			t2 = x;
+		}
 		else {
 			t1 = x;
 			t2 = *this;
-			flag = -1;
+			t1.sign=1;
 		}
 		l = t1.len;	
 		for (i = 0; i<len; i++)
@@ -90,7 +104,6 @@ largenum largenum:: operator-(const largenum & x)
 		{
 			t1.len--;
 		}
-		if (flag == -1)cout << '-';
 		return t1;
 	}
 
@@ -195,50 +208,57 @@ largenum & largenum::operator=(const largenum & n)
 	for (i = 0; i < len; i++)
 		a[i] = n.a[i];
 	return *this;
-}
+} 
 
-largenum::largenum(int n)
-{
-	int len = 0;
-	a.resize(500,0);
-	while (n >= 10000) {
-		a[len++] = n % 10000;
-		n /= 10000;
-	}
-	a[len++] = n;
-}
-void calculate(largenum &x1,char c,largenum &x2 ){
+void calculate(largenum x1,char c,largenum x2 ){
 	int flag = 0;
 	largenum x3;
-	cout << endl << "x1=" << x1 << endl;
-	cout << "x2=" << x2 << endl;
-	cout << "x1" << c << "x2=";
+	
 	if ('+' == c)flag = 1;
 	else if ('-' == c)flag = 2;
 	else if ('*' == c)flag = 3;
 	else cout << "type false!\n";
 	switch (flag) {
 		case 1:{
+			cout << "x1" << c << "x2=";
 			if((x1.sign==0&&x2.sign==0)||(x1.sign==1&&x2.sign==1)){
 				x3 = (x1 + x2);
 				cout << x3 << endl; 
 				break;
 			}
-			else if(x1.sign==0&&x2.sign==1){x3 = (x1 - (x2)); cout << x3 << endl; break; }
-			else if(x1.sign==1&&x2.sign==0){x3 = (x2 - (x1)); cout << x3 << endl; break; }
+			else if(x1.sign==0&&x2.sign==1){
+				x2.sign=0;
+				x3 = (x1 - (x2)); 
+				cout << x3 << endl; 
+				break; 
+			}
+			else if(x1.sign==1&&x2.sign==0){
+				x1.sign=0;
+				x3 = (x2 - (x1)); 
+				cout << x3 << endl; 
+				break; 
+			}
 		}
 		case 2:{
+			cout << "x1" << c << "x2=";
 			if(x1.sign==0&&x2.sign==0){
 				x3 = (x1- x2); 
 				cout << x3 << endl; 
 				break;
 			}
-			else if(x1.sign==1&&x2.sign==1){x3=(x2-(x1));cout<<x3<<endl;break;}
-			else if(x1.sign==0&&x2.sign==1){x3 = (x1 + (x2)); cout << x3 << endl; break; }
-			else if(x1.sign==1&&x2.sign==0){x3 = (x1 + (x2)); cout << x3 << endl; break; }
-		
+			else if(x1.sign==1&&x2.sign==1){
+				x1.sign=x2.sign=0;
+				x3=(x2-(x1));
+				cout<<x3<<endl;
+				break;
+				}
+			else {x3 = (x1 + (x2)); cout << x3 << endl; break; }
 		}
-		case 3:{x3 = x1 * x2; cout<<x3<<endl; break;}
+		case 3:{
+			cout << "x1" << c << "x2=";
+			x3 = x1 * x2; 
+			cout<<x3<<endl;
+			 break;}
 	}
 	cout << endl;
 }

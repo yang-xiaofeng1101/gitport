@@ -32,8 +32,8 @@ class largenum {
         bool operator>(const largenum &);
         bool operator<(const largenum &);
         bool operator==(const largenum &);
-        
+
         ~largenum(){}
 };
-void calculate(largenum &x1,char c,largenum &x2 );
+ void calculate(largenum x1,char c,largenum x2 );
 #endif
