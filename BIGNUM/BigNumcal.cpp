@@ -1,6 +1,6 @@
 #include<memory.h>
 #include<algorithm>
-#include"BigNumcal.h"
+#include"BigNumcal.hpp"
 using namespace std;
 
 largenum::largenum(int n)
